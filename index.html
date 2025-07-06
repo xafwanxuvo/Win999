@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CasinoX</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo">🎰 CasinoX</div>
+    <nav>
+      <ul>
+        <li><a href="#home">হোম</a></li>
+        <li><a href="#games">গেমস</a></li>
+        <li><a href="#wallet">ওয়ালেট</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+        <li><button onclick="toggleLanguage()">🌐 EN</button></li>
+        <li><a href="#login" class="login-btn">লগইন</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>স্বাগতম CasinoX-এ</h1>
+    <p>রুলেট, স্লট আর পোকার খেলুন এক জায়গায়!</p>
+    <a href="#games" class="play-btn">এখনই শুরু করুন</a>
+  </section>
+
+  <section id="games" class="section">
+    <h2>🎲 গেমস</h2>
+    <div class="games">
+      <div class="game-card">🎰 স্লট মেশিন</div>
+      <div class="game-card">🃏 পোকার</div>
+      <div class="game-card">🎯 রুলেট</div>
+    </div>
+  </section>
+
+  <section id="wallet" class="section">
+    <h2>💰 ওয়ালেট</h2>
+    <p>আপনার অ্যাকাউন্টে কয়েন যুক্ত করুন (ডেমো ভার্সন)।</p>
+    <button>+১০০ কয়েন</button>
+  </section>
+
+  <section id="login" class="section">
+    <h2>🔐 লগইন / সাইনআপ</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="ইউজারনেম" required><br>
+      <input type="password" id="password" placeholder="পাসওয়ার্ড" required><br>
+      <button type="submit">লগইন</button>
+    </form>
+    <p id="message" style="color: #ff5555; margin-top: 10px;"></p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>📞 যোগাযোগ</h2>
+    <form>
+      <input type="text" placeholder="আপনার নাম"><br>
+      <input type="email" placeholder="আপনার ইমেইল"><br>
+      <textarea placeholder="মেসেজ লিখুন..."></textarea><br>
+      <button type="submit">পাঠান</button>
+    </form>
+  </section>
+
+  <script>
+    function toggleLanguage() {
+      const langBtn = document.querySelector("button");
+      const links = document.querySelectorAll("nav a");
+
+      if (langBtn.textContent === "🌐 EN") {
+        langBtn.textContent = "🌐 বাংলা";
+        links[0].textContent = "Home";
+        links[1].textContent = "Games";
+        links[2].textContent = "Wallet";
+        links[3].textContent = "Contact";
+        links[5].textContent = "Login";
+        document.querySelector("h1").textContent = "Welcome to CasinoX";
+        document.querySelector("p").textContent = "Play Roulette, Slots & Poker in one place!";
+        document.querySelector(".play-btn").textContent = "Start Now";
+        document.querySelector("#games h2").textContent = "🎲 Games";
+        document.querySelector("#wallet h2").textContent = "💰 Wallet";
+        document.querySelector("#wallet p").textContent = "Add demo coins to your account.";
+        document.querySelector("#login h2").textContent = "🔐 Login / Signup";
+        document.querySelector("#contact h2").textContent = "📞 Contact";
+      } else {
+        langBtn.textContent = "🌐 EN";
+        links[0].textContent = "হোম";
+        links[1].textContent = "গেমস";
+        links[2].textContent = "ওয়ালেট";
+        links[3].textContent = "যোগাযোগ";
+        links[5].textContent = "লগইন";
+        document.querySelector("h1").textContent = "স্বাগতম CasinoX-এ";
+        document.querySelector("p").textContent = "রুলেট, স্লট আর পোকার খেলুন এক জায়গায়!";
+        document.querySelector(".play-btn").textContent = "এখনই শুরু করুন";
+        document.querySelector("#games h2").textContent = "🎲 গেমস";
+        document.querySelector("#wallet h2").textContent = "💰 ওয়ালেট";
+        document.querySelector("#wallet p").textContent = "আপনার অ্যাকাউন্টে কয়েন যুক্ত করুন (ডেমো ভার্সন)।";
+        document.querySelector("#login h2").textContent = "🔐 লগইন / সাইনআপ";
+        document.querySelector("#contact h2").textContent = "📞 যোগাযোগ";
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if(user === 'user' && pass === '1234') {
+        document.getElementById('message').style.color = 'lightgreen';
+        document.getElementById('message').textContent = 'লগইন সফল হয়েছে! 🎉';
+      } else {
+        document.getElementById('message').style.color = '#ff5555';
+        document.getElementById('message').textContent = 'ভুল ইউজারনেম বা পাসওয়ার্ড।';
+      }
+    });
+  </script>
+</body>
+</html>

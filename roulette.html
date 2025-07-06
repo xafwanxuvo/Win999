@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎯 রুলেট গেম</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; background: #111; color: white; }
+    #wheel {
+      width: 300px; height: 300px; border: 10px solid #ffcc00; border-radius: 50%;
+      margin: 0 auto; background: conic-gradient(red 0deg 60deg, black 60deg 120deg, green 120deg 180deg, red 180deg 240deg, black 240deg 300deg, green 300deg 360deg);
+      transition: transform 3s ease-out;
+    }
+    button { margin-top: 30px; padding: 10px 20px; font-size: 18px; background: #00c851; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>🎯 রুলেট গেম</h1>
+  <div id="wheel"></div>
+  <button onclick="spin()">চাকা ঘোরাও</button>
+  <p id="result"></p>
+  <script>
+    function spin() {
+      const wheel = document.getElementById('wheel');
+      const deg = Math.floor(3600 + Math.random() * 720);
+      wheel.style.transform = `rotate(${deg}deg)`;
+      setTimeout(() => {
+        const sector = (deg % 360);
+        let msg = 'ফলাফল: ';
+        if (sector < 60) msg += '🔴 লাল';
+        else if (sector < 120) msg += '⚫ কালো';
+        else if (sector < 180) msg += '🟢 সবুজ';
+        else if (sector < 240) msg += '🔴 লাল';
+        else if (sector < 300) msg += '⚫ কালো';
+        else msg += '🟢 সবুজ';
+        document.getElementById('result').textContent = msg;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

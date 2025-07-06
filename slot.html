@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎰 স্লট মেশিন</title>
+  <style>
+    body { text-align: center; background: #222; color: #fff; font-family: sans-serif; padding-top: 50px; }
+    .slot { font-size: 60px; margin: 20px; }
+    button { padding: 10px 20px; font-size: 18px; background: #00c851; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>🎰 স্লট মেশিন</h1>
+  <div class="slot" id="slot1">🍒</div>
+  <div class="slot" id="slot2">🍋</div>
+  <div class="slot" id="slot3">🔔</div>
+  <button onclick="spin()">স্পিন</button>
+  <p id="result"></p>
+  <script>
+    const symbols = ['🍒','🍋','🔔','🍉','⭐','🍇'];
+    function spin() {
+      const s1 = symbols[Math.floor(Math.random()*symbols.length)];
+      const s2 = symbols[Math.floor(Math.random()*symbols.length)];
+      const s3 = symbols[Math.floor(Math.random()*symbols.length)];
+      document.getElementById('slot1').textContent = s1;
+      document.getElementById('slot2').textContent = s2;
+      document.getElementById('slot3').textContent = s3;
+      const result = (s1 === s2 && s2 === s3) ? '🎉 তিনটা মিলেছে! তুমি জিতেছো!' : '😅 চেষ্টা চালিয়ে যাও!';
+      document.getElementById('result').textContent = result;
+    }
+  </script>
+</body>
+</html>

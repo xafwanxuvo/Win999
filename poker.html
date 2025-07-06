@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🃏 পোকার ড্র</title>
+  <style>
+    body { background: #1b1b1b; color: white; text-align: center; padding-top: 60px; font-family: sans-serif; }
+    .card { font-size: 40px; margin: 10px; display: inline-block; width: 80px; height: 120px; background: white; color: black; border-radius: 10px; line-height: 120px; }
+    button { margin-top: 20px; padding: 10px 20px; background: #00c851; border: none; border-radius: 5px; font-size: 18px; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>🃏 কার্ড ড্র পোকার</h1>
+  <div id="cards"></div>
+  <button onclick="draw()">কার্ড ড্র করো</button>
+  <script>
+    const suits = ['♠','♥','♦','♣'];
+    const values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+    function draw() {
+      const cardsDiv = document.getElementById('cards');
+      cardsDiv.innerHTML = '';
+      for (let i = 0; i < 3; i++) {
+        const val = values[Math.floor(Math.random()*values.length)];
+        const suit = suits[Math.floor(Math.random()*suits.length)];
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.textContent = val + suit;
+        cardsDiv.appendChild(card);
+      }
+    }
+  </script>
+</body>
+</html>
